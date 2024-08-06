@@ -23,9 +23,13 @@ invoice_date = current_date.strftime("%Y年%m月%d日")
 year_month = current_date.strftime("%Y%m")
 
 invoice_month = current_date.month
+
 output_folder = f"請求書_{current_date.strftime('%Y年%m月')}"
+
 os.makedirs(output_folder, exist_ok=True)
+
 output_file = f"{output_folder}/請求書_{current_date.strftime('%Y年%m月')}.xlsx"
+
 invoice_number = 1
 
 # 4繰り返し処理で請求書の中身を作成する
@@ -115,4 +119,5 @@ for index in range(lastrow):
         img.height = 100
 
         copy_ws.add_image(img, "P5")
+
 wb.save(output_file)
